@@ -222,7 +222,7 @@ button { cursor: pointer; font-family: inherit; }
 /* ── DIFERENCIAIS ── */
 .diferenciais { padding: 72px 0; background: var(--bg); border-bottom: 1px solid var(--border); }
 .dif__container { max-width: 1200px; margin: 0 auto; padding: 0 28px; }
-.dif__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
+.dif__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; align-items: stretch; }
 .dif-card {
   padding: 32px 24px; border-radius: 16px; border: 1px solid var(--border);
   background: var(--white); text-align: center;
@@ -302,7 +302,7 @@ button { cursor: pointer; font-family: inherit; }
 .sintomas__header .eyebrow { color: rgba(185,45,90,0.9); }
 .sintomas__header .section-title { color: var(--white); }
 .sintomas__header .section-desc { color: rgba(255,255,255,0.6); }
-.sintomas__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.sintomas__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: stretch; }
 .sintoma-card {
   padding: 32px 28px; border: 1px solid rgba(185,45,90,0.18);
   border-radius: 16px; background: rgba(185,45,90,0.04);
@@ -324,9 +324,9 @@ button { cursor: pointer; font-family: inherit; }
 .como-trato { padding: 108px 0; background: var(--bg-alt); }
 .como__container { max-width: 1200px; margin: 0 auto; padding: 0 28px; }
 .como__header { text-align: center; max-width: 640px; margin: 0 auto 72px; }
-.como__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
+.como__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; align-items: stretch; }
 .trato-card {
-  display: grid; grid-template-columns: auto 1fr; gap: 24px;
+  display: grid; grid-template-columns: 56px 1fr; gap: 24px;
   padding: 36px 32px; background: var(--white); border-radius: 18px;
   border: 1px solid var(--border); box-shadow: var(--shadow-sm);
   transition: transform var(--dur), box-shadow var(--dur);
@@ -352,7 +352,7 @@ button { cursor: pointer; font-family: inherit; }
 .para-quem { padding: 108px 0; background: var(--bg); }
 .pq__container { max-width: 1200px; margin: 0 auto; padding: 0 28px; }
 .pq__header { text-align: center; max-width: 600px; margin: 0 auto 64px; }
-.pq__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.pq__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: stretch; }
 .pq-card {
   padding: 36px 28px; border: 1px solid var(--border); border-radius: 18px;
   background: var(--white); transition: transform var(--dur), box-shadow var(--dur), border-color var(--dur);
@@ -520,13 +520,19 @@ button { cursor: pointer; font-family: inherit; }
   .nav__links.open { display: flex; }
   .nav__link { font-size: 1.1rem; color: var(--text-sec); }
   .nav__hamburger { display: flex; }
-  .hero__img { width: 100%; opacity: 0.35; }
-  .hero__overlay { background: linear-gradient(to top, rgba(14,8,16,0.97) 0%, rgba(14,8,16,0.5) 60%, transparent 100%); }
-  .hero__content { align-items: flex-end; display: flex; min-height: 100vh; padding-bottom: 60px; }
+  /* Hero mobile: imagem full, texto na base sem tapar o rosto */
+  .hero { min-height: 100svh; align-items: flex-end; }
+  .hero__img { width: 100%; height: 100%; object-position: top center; opacity: 0.55; }
+  .hero__overlay { background: linear-gradient(to top, rgba(14,8,16,0.96) 0%, rgba(14,8,16,0.55) 45%, transparent 75%); }
+  .hero__content { display: flex; align-items: flex-end; min-height: unset; padding-top: 0; padding-bottom: 52px; }
+  .hero__text { max-width: 100%; }
+  .hero__title { font-size: clamp(1.9rem, 7.5vw, 2.6rem); margin-bottom: 14px; }
+  .hero__subtitle { font-size: 0.92rem; margin-bottom: 28px; max-width: 100%; }
   .sobre__container { grid-template-columns: 1fr; }
   .sobre__img-badge { right: 12px; bottom: -16px; }
   .sintomas__grid { grid-template-columns: 1fr; }
   .pq__grid { grid-template-columns: repeat(2, 1fr); }
+  .dif__grid { grid-template-columns: repeat(2, 1fr); }
   .atend__container { grid-template-columns: 1fr; }
   .atend__img { order: -1; }
   .footer__container { grid-template-columns: 1fr; gap: 36px; }
@@ -537,12 +543,15 @@ button { cursor: pointer; font-family: inherit; }
   .depo-destaque { padding: 48px 28px; }
   .depo-destaque__quote-mark { font-size: 5rem; }
   .sobre, .sintomas, .como-trato, .para-quem, .atendimento, .pacientes, .faq { padding: 72px 0; }
+  .diferenciais { padding: 56px 0; }
 }
 
 /* ── RESPONSIVE 420px ── */
 @media (max-width: 420px) {
   .pq__grid { grid-template-columns: 1fr; }
+  .dif__grid { grid-template-columns: 1fr; }
   .pac__grid { grid-template-columns: repeat(2, 1fr); }
+  .hero__title { font-size: clamp(1.7rem, 7vw, 2.2rem); }
   .sobre, .sintomas, .como-trato, .para-quem, .atendimento, .pacientes, .faq { padding: 56px 0; }
   .cta-final { padding: 80px 0; }
   .trato-card { grid-template-columns: 1fr; }
