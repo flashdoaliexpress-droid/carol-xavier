@@ -181,7 +181,7 @@ button { cursor: pointer; font-family: inherit; }
 }
 .hero__overlay {
   position: absolute; inset: 0;
-  background: linear-gradient(to right, var(--bg-dark) 30%, rgba(14,8,16,0.6) 70%, transparent 100%);
+  background: linear-gradient(to right, rgba(14,8,16,0.82) 28%, rgba(14,8,16,0.35) 65%, transparent 100%);
   z-index: 1;
 }
 .hero__content {
@@ -218,6 +218,24 @@ button { cursor: pointer; font-family: inherit; }
   background: rgba(255,255,255,0.05);
 }
 .hero__badge svg { color: var(--accent); flex-shrink: 0; }
+
+/* ── DIFERENCIAIS ── */
+.diferenciais { padding: 72px 0; background: var(--bg); border-bottom: 1px solid var(--border); }
+.dif__container { max-width: 1200px; margin: 0 auto; padding: 0 28px; }
+.dif__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
+.dif-card {
+  padding: 32px 24px; border-radius: 16px; border: 1px solid var(--border);
+  background: var(--white); text-align: center;
+  transition: transform var(--dur), box-shadow var(--dur), border-color var(--dur);
+}
+.dif-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--accent); }
+.dif-card__icon {
+  width: 52px; height: 52px; border-radius: 14px;
+  background: var(--accent-alpha); display: flex; align-items: center;
+  justify-content: center; color: var(--accent); margin: 0 auto 18px;
+}
+.dif-card__title { font-family: var(--headline); font-size: 1.2rem; font-weight: 700; color: var(--text); margin-bottom: 10px; }
+.dif-card__text { font-size: 0.88rem; color: var(--text-sec); line-height: 1.75; }
 
 /* ── NÚMEROS ── */
 .numeros { background: var(--bg-dark); border-top: 1px solid rgba(185,45,90,0.2); }
@@ -481,6 +499,7 @@ button { cursor: pointer; font-family: inherit; }
 
 /* ── RESPONSIVE 1024px ── */
 @media (max-width: 1024px) {
+  .dif__grid { grid-template-columns: repeat(2, 1fr); }
   .sintomas__grid { grid-template-columns: repeat(2, 1fr); }
   .como__grid { grid-template-columns: 1fr; }
   .sobre__container { gap: 48px; }
